@@ -1,5 +1,5 @@
-# Graph
+# Time
 
-This is a project for plotting graphs for mathematical equations. It is being built with SVG. Right now it is just a skeleton.
+This is an application to show local time in various cities across all timezones.
 
 Feel free to contact sayantan.hore.86@gmail.com
