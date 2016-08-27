@@ -1,0 +1,55 @@
+$header-height: 5vh;
+$header-width: 98vw;
+$content-width: $header-width;
+$content-height: 95vh;
+$left-pane-width: 30vw;
+$right-pane-width: 70vw;
+$left-pane-xs-height: 20vh;
+
+.graph-app-container {
+  font-family: 'Open Sans', sans-serif;
+  overflow: hidden;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+  .header {
+    flex-basis: $header-height;
+    line-height: $header-height;
+    min-width: $header-width;
+    padding: 0 1vw;
+    border: 1px solid;
+  }
+  .content {
+    flex-basis: $content-height;
+    width: auto;
+    min-width: $content-width;
+    padding: 0 1vw;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-around;
+    align-content: center;
+    align-items: center;
+
+    .sidebar {
+      flex-basis: $left-pane-width;
+      text-align: center;
+      max-height: 80vh;
+      overflow-y: auto;
+      border: 1px solid;
+      ul {
+        li{
+          margin: 5rem 3rem;
+          cursor: pointer;
+          list-style-type: none;
+        }
+      }
+
+    }
+    .display {
+      flex-basis: 60vw;
+      text-align: center;
+    }
+  }
+}

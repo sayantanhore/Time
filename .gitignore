@@ -1,0 +1,7 @@
+bower_components/**/*
+node_modules/**/*
+.sass-cache/**/*
+src/test*.js
+dist/**/*
+.DS_Store
+npm-debug.log

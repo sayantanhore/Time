@@ -1,0 +1,17 @@
+<div class="graph-app-container">
+  <div class="header">
+    <span>Graph</span>
+  </div>
+  <div class="content">
+    <div class="sidebar">
+      <ul>
+        <li ng-repeat="city in $ctrl.cities" ng-click="$ctrl.getTime($event)">
+          {{city}}
+        </li>
+      </ul>
+    </div>
+    <div class="display">
+      {{$ctrl.desiredTime}}
+    </div>
+  </div>
+</div>
