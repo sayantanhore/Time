@@ -1,7 +1,7 @@
 {
-  "name": "graph",
+  "name": "time",
   "version": "0.0.1",
-  "description": "A simple mathematical plotting tool.",
+  "description": "A simple application to show local time across cities in all timezones",
   "main": "server.js",
   "scripts": {
     "test": "gulp test",
