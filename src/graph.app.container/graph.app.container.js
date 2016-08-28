@@ -1,9 +1,11 @@
 import _ from 'lodash';
+import moment from 'moment';
 export class GraphAppContainerCtrl {
   constructor($scope, timezones) {
     'ngInject';
     this.timezones = timezones;
     this.getTimezones();
+    this.desiredTime = moment().format('LLL');
   }
   getTime($event) {
     let place = angular.element($event.target).html().trim();

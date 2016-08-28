@@ -1,55 +1,127 @@
 $header-height: 5vh;
-$header-width: 98vw;
-$content-width: $header-width;
 $content-height: 95vh;
-$left-pane-width: 30vw;
-$right-pane-width: 70vw;
-$left-pane-xs-height: 20vh;
+$header-width: 90vw;
 
-.graph-app-container {
-  font-family: 'Open Sans', sans-serif;
-  overflow: hidden;
+@mixin container-config {
   display: flex;
-  flex-flow: column nowrap;
-  justify-content: center;
+  flex-flow: column wrap;
+  justify-content: space-around;
   align-content: center;
   align-items: center;
-  .header {
-    flex-basis: $header-height;
-    line-height: $header-height;
-    min-width: $header-width;
-    padding: 0 1vw;
-    border: 1px solid;
-  }
-  .content {
-    flex-basis: $content-height;
-    width: auto;
-    min-width: $content-width;
-    padding: 0 1vw;
-    display: flex;
-    flex-flow: row nowrap;
-    justify-content: space-around;
-    align-content: center;
-    align-items: center;
+}
 
-    .sidebar {
-      flex-basis: $left-pane-width;
-      text-align: center;
-      max-height: 80vh;
-      overflow-y: auto;
-      border: 1px solid;
-      ul {
-        li{
-          margin: 5rem 3rem;
-          cursor: pointer;
-          list-style-type: none;
+@mixin header-config {
+  background-color: rgba(0, 0, 0, 0.1);
+  letter-spacing: 4px;
+  padding: 0vh 5vw;
+  line-height: $header-height;
+  flex-basis: $header-height;
+  min-width: $header-width;
+}
+
+@media screen and (min-width: 768px) {
+  .graph-app-container {
+    @include container-config;
+    background-image: url('../images/city.jpg');
+    .header {
+      @include header-config;
+    }
+    .content {
+      flex-basis: $content-height;
+      width: 80vw;
+      display: flex;
+      flex-flow: row nowrap;
+      justify-content: space-around;
+      align-content: center;
+      align-items: center;
+      .sidebar {
+        max-height: 80vh;
+        flex-basis: 30vw;
+        overflow-y: scroll;
+        text-align: center;
+        ul {
+          li{
+            margin: 5rem 3rem;
+            cursor: pointer;
+            list-style-type: none;
+          }
         }
       }
-
+      .display {
+        flex-basis: 30vw;
+        font-size: 16px;
+      }
     }
-    .display {
-      flex-basis: 60vw;
-      text-align: center;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .graph-app-container {
+    @include container-config;
+    background-image: url('../images/city-md.jpg');
+    .header {
+      @include header-config;
+    }
+    .content {
+      flex-basis: $content-height;
+      width: 90vw;
+      display: flex;
+      flex-flow: column nowrap;
+      justify-content: space-around;
+      align-content: center;
+      align-items: center;
+      .sidebar {
+        flex-basis: 60vh;
+        max-width: 40vw;
+        overflow-y: scroll;
+        text-align: center;
+        ul {
+          li{
+            margin: 3rem 1rem;
+            cursor: pointer;
+            list-style-type: none;
+          }
+        }
+      }
+      .display {
+        flex-basis: 10vh;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 319px) {
+  .graph-app-container {
+    @include container-config;
+    .header {
+      @include header-config;
+    }
+    .content {
+      flex-basis: $content-height;
+      width: 90vw;
+      display: flex;
+      flex-flow: column nowrap;
+      justify-content: space-around;
+      align-content: center;
+      align-items: center;
+      .sidebar {
+        font-size: 10px;
+        flex-basis: 60vh;
+        max-width: 40vw;
+        overflow-y: scroll;
+        text-align: center;
+        ul {
+          li{
+            margin: 3rem 1rem;
+            cursor: pointer;
+            list-style-type: none;
+          }
+        }
+      }
+      .display {
+        font-size: 10px;
+        flex-basis: 10vh;
+      }
     }
   }
 }
