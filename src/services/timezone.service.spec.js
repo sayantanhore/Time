@@ -12,13 +12,13 @@ describe('Timezone service', () => {
   it('should calculate zonal time backward', () => {
     let timeGap = -3.30;
     let localTime = 10.20;
-    let zonalTime = moment().subtract(3, 'hours').subtract(30, 'minutes').format('LLL');
+    let zonalTime = moment().utc().subtract(3, 'hours').subtract(30, 'minutes').format('LLL');
     expect(timezones.getZonalTime(timeGap)).toBe(zonalTime);
   });
   it('should calculate zonal time forward', () => {
     let timeGap = 10.00;
     let localTime = 10.20;
-    let zonalTime = moment().add(10, 'hours').add(0, 'minutes').format('LLL');
+    let zonalTime = moment().utc().add(10, 'hours').add(0, 'minutes').format('LLL');
     expect(timezones.getZonalTime(timeGap)).toBe(zonalTime);
   });
   it('should fetch timezones', () => {
@@ -30,7 +30,6 @@ describe('Timezone service', () => {
     });
     timezones.getTimezones()
       .then((response) => {
-          console.log(response.data);
           expect(response.data).toEqual({
             timezones: {
               'time1': 'zone1',

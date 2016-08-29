@@ -8,11 +8,12 @@ export class TimezonesService {
     let hours = Math.floor(Math.abs(timeGap));
     let minutes = Math.round((Math.abs(timeGap) - hours) * 100);
     if (timeGap < 0) {
-      return moment().subtract(hours, 'hours').subtract(minutes, 'minutes').format('LLL');
+      return moment().utc().subtract(hours, 'hours').subtract(minutes, 'minutes').format('LLL');
     } else {
-      return moment().add(hours, 'hours').add(minutes, 'minutes').format('LLL');
+      return moment().utc().add(hours, 'hours').add(minutes, 'minutes').format('LLL');
     }
   }
+
   getTimezones() {
     return this.$http({
       method: 'GET',
